@@ -6,23 +6,23 @@ const filmHolder = document.querySelector('.film_holder');
 
 const { log } = console;
 
-// const films = e => {
-//   e.preventDefault();
-//   const film = input.value.replaceAll(' ', '%20');
+const films = e => {
+  e.preventDefault();
+  const film = input.value.replaceAll(' ', '%20');
 
-//   log('film', film);
+  log('film', film);
 
-//   if (film) {
-//     let link = `
-//     https://api.themoviedb.org/3/search/multi?api_key=${key}&query=${film}`;
-//     log(link);
-//     fetchFilm(link).then(res => {
-//       log(res.results[0]);
-//     });
-//   } else {
-//     log('sorry');
-//   }
-// };
+  if (film) {
+    let link = `
+    https://api.themoviedb.org/3/search/multi?api_key=${key}&query=${film}`;
+    log(link);
+    fetchFilm(link).then(res => {
+      log(res.results[0]);
+    });
+  } else {
+    log('sorry');
+  }
+};
 
 // const fetchFilm = link => {
 //   return fetch(link).then(res => {
@@ -48,16 +48,16 @@ const tranding = () => {
 };
 
 const DOMElement = ele => {
-  //   log(ele);
+  log(ele);
   ele.map(async film => {
     let name = film.name || film.title;
-    let backdrop = film.backdrop_path;
-    let generes = await getGenres(film.id);
+    let poster = film.poster_path;
+    let genres = await getGenres(film.id);
 
-    let HTMLelement = ` <div>
-  <img src="${backdrop}" alt="" />
-  <p>${name}</p>
-  <p>${generes}</p>
+    let HTMLelement = ` <div class="film__element">
+  <img class="film__backdrop" src="https://image.tmdb.org/t/p/original${poster}" alt="" />
+  <p class="film__name">${name}</p>
+  <p class="film__genres">${genres}</p>
   </div>`;
 
     filmHolder.innerHTML = filmHolder.innerHTML + HTMLelement;
@@ -70,10 +70,9 @@ const getGenres = async id => {
   await fetchFilm(link).then(res => {
     if (res.success === false) {
       let link = `https://api.themoviedb.org/3/tv/${id}?api_key=cd99a2449e6daaffb205ea92bac682a0&language=en-US`;
-      fetchFilm(link).then(res => {
-        gen = res.genres.map(ele => ele.name).join(' ');
-        log(gen);
-        return gen;
+      return fetchFilm(link).then(res => {
+        gen = res.genres.map(ele => ele.name);
+        // return gen;
       });
     } else {
       gen = res.genres.map(ele => ele.name).join(' ');
@@ -84,7 +83,7 @@ const getGenres = async id => {
 
 tranding();
 
-// form.addEventListener('submit', films);
+form.addEventListener('submit', films);
 
 // await fetchFilm(link).then(res => {
 //     log(res);

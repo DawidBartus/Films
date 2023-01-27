@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.film_holder {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 71px;
+  gap: 15px;
+}
+
+.film__element {
+  width: 280px;
+  height: auto;
+}
+.film__genres {
+  color: #ff6b08;
+}
+.film__backdrop {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
