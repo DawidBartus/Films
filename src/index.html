@@ -4,18 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form action="">
-      <input id="film_input" type="text" />
-      <button type="submit">Szukaj</button>
-    </form>
+    <header>
+      <ul class="header_list">
+        <li class="header_element">
+          <a href="http://" class="header_link header_logo">Filmoteka</a>
+        </li>
+        <li class="header_element">
+          <a href="http://" class="header_link">HOME</a>
+        </li>
+        <li class="header_element">
+          <a href="http://" class="header_link">MY LIBRARY</a>
+        </li>
+      </ul>
+      <form action="">
+        <input id="film_input" type="text" />
+        <button></button>
+      </form>
+    </header>
+
     <div class="film_holder"></div>
-    <button>Prev page</button>
-    <input type="number" />
-    <button>Next page</button>
+    <div class="film_details is_hidden"></div>
+    <div class="buttons">
+      <button class="prev">Prev page</button>
+      <div class="pages_number"></div>
+      <button class="next">Next page</button>
+    </div>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
