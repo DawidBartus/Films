@@ -75,7 +75,7 @@ const changePage = e => {
     filmHolder.innerHTML = '';
     tranding();
   } else if (e.target === nextBttn) {
-    page += 1;
+    page = parseInt(page) + 1;
     filmHolder.innerHTML = '';
     tranding();
   } else {
