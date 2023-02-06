@@ -2,14 +2,14 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://dawidbartus.github.io/Films",
+  "homepage": "https://dawidbartus.github.io/Films/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Films/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://dawidbartus.github.io/Films"
+    "url": "git+https://dawidbartus.github.io/Films/"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
