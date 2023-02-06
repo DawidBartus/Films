@@ -12,6 +12,7 @@ const filmDetails = document.querySelector('.film_details');
 let page = 1;
 let pages;
 let pageArray = [];
+let link;
 
 const { log } = console;
 
@@ -20,7 +21,7 @@ const films = e => {
   const film = input.value.replaceAll(' ', '%20');
 
   if (film) {
-    let link = `
+    link = `
     https://api.themoviedb.org/3/search/multi?api_key=${key}&query=${film}`;
 
     fetchFilm(link).then(res => {
@@ -122,11 +123,11 @@ const DOMElement = ele => {
 };
 
 const getGenres = async id => {
-  let link = `https://api.themoviedb.org/3/movie/${id}?api_key=cd99a2449e6daaffb205ea92bac682a0`;
+  link = `https://api.themoviedb.org/3/movie/${id}?api_key=cd99a2449e6daaffb205ea92bac682a0`;
   let gen;
   await fetchFilm(link).then(res => {
     if (res.success === false) {
-      let link = `https://api.themoviedb.org/3/tv/${id}?api_key=cd99a2449e6daaffb205ea92bac682a0&language=en-US`;
+      link = `https://api.themoviedb.org/3/tv/${id}?api_key=cd99a2449e6daaffb205ea92bac682a0&language=en-US`;
       return fetchFilm(link).then(res => {
         gen = res.genres.map(ele => ele.name);
         // return gen;
